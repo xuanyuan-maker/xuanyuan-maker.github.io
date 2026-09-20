@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+_multiconfig.yml
+# 草稿是独立仓库（github.com:xuanyuan-maker/blog-drafts），不属于站点仓库
+source/_drafts/
