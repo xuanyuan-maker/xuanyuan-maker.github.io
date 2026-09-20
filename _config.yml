@@ -17,7 +17,7 @@ favicon: /images/avatar.webp
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://xuanyuan-blog.top
+url: https://xuanyuan-maker.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -104,6 +104,9 @@ theme: stellar
 
 # Deployment
 ## 已改为 GitHub Actions 构建并发布到 GitHub Pages，不再需要 hexo deploy（原 rsync 到阿里云服务器已移除）
-## 工作流见 .github/workflows/pages.yml，站点地址 https://xuanyuan-blog.top
+## 工作流见 .github/workflows/pages.yml
+## 当前站点地址：https://xuanyuan-maker.github.io
+## 待 xuanyuan-blog.top 释放后切自定义域名，需同步改三处：
+##   1) 本文件 url   2) _config.stellar.yml 的 canonical.originalHost   3) 仓库 Settings → Pages → Custom domain
 deploy:
   type: ''
