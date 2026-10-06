@@ -9,8 +9,9 @@ tags:
 categories:
   - - pwn
     - CTF题解
-cover: /images/banner-5.webp
-banner: /images/banner-6.webp
+cover: /images/banner-6.webp
+banner:
+  background: true
 ---
 
 # fd

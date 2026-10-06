@@ -10,8 +10,9 @@ categories:
 date: 2026-01-29 15:46:18
 excerpt:
   - 本文系统介绍了格式化字符串漏洞的原理与利用。首先讲解了格式化字符串函数（如 printf）的基本用法及其格式化占位符的详细语法。核心漏洞在于当用户输入被直接作为格式化字符串解析时，攻击者可控制其内容，使程序从栈或寄存器中读取或写入数据。文章通过调试实例，具体展示了如何利用该漏洞泄露栈内存（如canary）、任意地址内存（如GOT表）以及使用 %n 等格式化符覆盖指定内存的值（修改变量），并提供了相应的利用脚本示例。
-cover: /images/banner-9.webp
-banner: /images/banner-10.webp
+cover: /images/banner-10.webp
+banner:
+  background: true
 ---
 
 # 格式化字符串漏洞

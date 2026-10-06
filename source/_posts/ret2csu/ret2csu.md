@@ -11,8 +11,9 @@ categories:
 excerpt:
   - ret2csu是一种在x86_64 Linux程序中，当常用ROP gadget（如pop rdi; ret）缺失时的强大利用技术。它通过挖掘glibc初始化函数__libc_csu_init中固有的两段指令序列，实现对rdi、rsi、rdx等关键参数寄存器的间接控制。典型攻击分为三步：首次调用泄露libc基址；第二次调用向.bss段写入数据（如execve地址与"/bin/sh"）；最终调用执行shell。该技术因代码片段广泛存在于glibc<2.34的程序中而具有很高可靠性，是中级ROP攻击的重要组成。
 date: 2026-02-04 17:51:58
-cover: /images/banner-7.webp
-banner: /images/banner-8.webp
+cover: /images/banner-8.webp
+banner:
+  background: true
 ---
 
 # ret2csu

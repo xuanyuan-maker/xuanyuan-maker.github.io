@@ -11,7 +11,7 @@ categories:
     - 栈溢出
 date: 2026-01-08 20:59:28
 cover:
-banner:
+
 ---
 
 # 基本ROP：ret2text

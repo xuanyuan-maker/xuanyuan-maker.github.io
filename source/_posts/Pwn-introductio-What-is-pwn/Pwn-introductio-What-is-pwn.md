@@ -8,7 +8,9 @@ categories:
     - Linux用户态
     - 基础知识
 date: 2025-08-08 11:01:25
-banner: /images/banner-2.webp
+cover: /images/banner-2.webp
+banner:
+  background: true
 ---
 
 # PWN入门之一：什么是PWN

@@ -12,7 +12,7 @@ categories:
     - VM Pwn
 date: 2026-06-16 19:52:56
 cover:
-banner:
+
 ---
 
 # qual_virtual WP

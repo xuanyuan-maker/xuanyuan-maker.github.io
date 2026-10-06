@@ -8,7 +8,6 @@ categories:
 excerpt:
   - [记得补上]
 cover:
-banner: 
 ---
 
 <!--PWN_CONTENT-->

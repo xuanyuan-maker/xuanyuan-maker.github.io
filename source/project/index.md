@@ -2,7 +2,9 @@
 title: 项目
 date: 2026-01-08 18:41:16
 description: '个人开源项目介绍'
-banner: /images/banner-1.webp
+cover: /images/banner-1.webp
+banner:
+  background: true
 ---
 
 ## autoi-mcp

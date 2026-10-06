@@ -12,7 +12,7 @@ categories:
     - VM Pwn
 date: 2026-06-25 15:28:08
 cover:
-banner:
+
 ---
 
 # OGeek2019-Final OVM WP

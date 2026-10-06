@@ -7,9 +7,11 @@ date: 2025-08-08 07:22:59
 tags:
   - Hexo
   - 站点测试
-cover: /images/banner-1.webp
-banner: /images/banner-2.webp
-mermaid: true
+cover: /images/banner-2.webp
+banner:
+  background: true
+render:
+  diagrams: mermaid
 ---
 
 # 测试文章

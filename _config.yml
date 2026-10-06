@@ -107,6 +107,6 @@ theme: stellar
 ## 工作流见 .github/workflows/pages.yml
 ## 当前站点地址：https://xuanyuan-maker.github.io
 ## 待 xuanyuan-blog.top 释放后切自定义域名，需同步改三处：
-##   1) 本文件 url   2) _config.stellar.yml 的 canonical.originalHost   3) 仓库 Settings → Pages → Custom domain
+##   1) 本文件 url   2) _config.stellar.yml 的 canonical.host   3) 仓库 Settings → Pages → Custom domain
 deploy:
   type: ''
