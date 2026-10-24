@@ -1,5 +1,5 @@
 ---
-title: C Pointers and Structures for Beginners - Structure Basics
+title: C 语言指针与结构体入门 - 结构体基础
 date: 2026-10-24 18:07:54
 tags:
   - C语言

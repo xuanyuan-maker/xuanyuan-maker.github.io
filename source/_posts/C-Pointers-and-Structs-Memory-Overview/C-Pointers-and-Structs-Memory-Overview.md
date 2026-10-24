@@ -1,5 +1,5 @@
 ---
-title: C Pointers and Structures for Beginners - Memory Overview
+title: C 语言指针与结构体入门 - 内存概述
 date: 2026-10-24 17:31:31
 tags:
   - C语言
