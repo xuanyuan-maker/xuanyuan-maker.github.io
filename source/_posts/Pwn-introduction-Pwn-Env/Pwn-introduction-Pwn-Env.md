@@ -255,37 +255,62 @@ I/O控制器类型选择**`LSI Logic`**
    su
    ```
 
-2. 上一步验证完不要着急退出，在`root`用户下，输入如下命令
+2. 上一步验证完不要着急退出，在`root`用户下，先确认一下自己这套 Kali 用的是哪种源文件。
+
+   Kali 从 **2026.2** 起把官方源挪到了新位置、换成了新格式：`/etc/apt/sources.list.d/kali.sources`（deb822 风格）。也就是说，2026.2 及之后装出来的系统，`/etc/apt/sources.list` 这个文件根本不存在——直接 `vim` 它只会新建一个空文件，而官方源还老老实实在 `kali.sources` 里生效，等于白换一场。
+
+   先看一眼自己是哪种：
 
    ```shell
-   cp /etc/apt/sources.list /etc/apt/sourcesinit
+   ls -l /etc/apt/sources.list /etc/apt/sources.list.d/kali.sources
    ```
 
-   把原来用来放软件源的文件复制并改名。
-
-   然后用如下命令打开`sources.list`
+   看到 `kali.sources` 就是新格式，照着下面做；如果只有 `sources.list`，那是老格式，先把它转过来再改：
 
    ```shell
-   vim /etc/apt/sources.list
+   apt update
+   apt modernize-sources
    ```
 
-   之后一直按`D`键把原来的软件源都删掉，然后把下面的软件源复制进去
+   转换完文件还是同一个位置（`kali.sources`），接着往下走。
+
+3. 备份并修改源文件
+
+   ```shell
+   cp /etc/apt/sources.list.d/kali.sources /etc/apt/sources.list.d/kali.sources.bak
+   ```
+
+   然后打开它：
+
+   ```shell
+   vim /etc/apt/sources.list.d/kali.sources
+   ```
+
+   在 vim 里按 `ggdG` 把内容全删掉，再把下面这段粘进去（还是`CTRL`+`SHIFT`+`V`）
 
    ```shell
    # 中科大Kali镜像源
-   deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free non-free-firmware contrib
-   deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free non-free-firmware contrib
-   # 阿里云Kali镜像源
-   deb http://mirrors.aliyun.com/kali kali-rolling main non-free non-free-firmware contrib
-   deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free non-free-firmware contrib
+   Types: deb
+   URIs: https://mirrors.ustc.edu.cn/kali
+   Suites: kali-rolling
+   Components: main contrib non-free non-free-firmware
+   Signed-By: /usr/share/keyrings/kali-archive-keyring.gpg
    ```
+
+   几个字段顺手记一下，以后不用来回查：
+
+   - `Types`：`deb` 是二进制包，够用了。`deb-src` 是源码包，只有你要自己编译或者调试某个包时才加，平时开着每次 update 都会多拉几十 MB，纯属拖慢自己。
+   - `URIs`：镜像地址。想换阿里云就写`https://mirrors.aliyun.com/kali`，清华是`https://mirrors.tuna.tsinghua.edu.cn/kali`。**只写一个**，别把两三个镜像并列写上去，Kali 的仓库没有 by-hash 机制，两个镜像同步进度对不上时会互相打架，报“文件尺寸不符”之类的错。用 `https` 的前提是系统里有`ca-certificates`（正常装完的 Kali 都自带），要是更新时报 `SSL certificate ... verify failed`，那就先 `apt install ca-certificates`，或者把地址临时换成 `http://`。
+   - `Suites`：分支，`kali-rolling` 就是默认的滚动版。
+   - `Components`：组件，照抄即可，顺序无关。
+   - `Signed-By`：校验镜像签名用的 keyring，Kali 自带，别删。
 
    然后输入，一定是输入`:`，不是按这个键，然后输入`wq`退出。
 
-3. 换完源之后输入如下命令进行系统更新
+4. 换完源之后输入如下命令进行系统更新
 
    ```shell
-   apt-get update;apt-get upgrade -y;apt-get dist-upgrade
+   apt update && apt full-upgrade -y
    ```
 
    又是一段漫长的等待。
@@ -293,7 +318,7 @@ I/O控制器类型选择**`LSI Logic`**
    然后清理缓存包
 
    ```shell
-   apt-get clean && apt-get autoclean
+   apt clean && apt autoclean
    ```
 
 ### 3、更改系统语言和安装输入法
