@@ -97,7 +97,10 @@ features:
   reveal:
     enabled: false
 canonical:
-  host: xuanyuan-maker.github.io
+  host: xuanyuan-blog.top
+  allowed_hosts:
+    - localhost
+    - xuanyuan-maker.github.io
 inject:
   body_end: <script>document.querySelectorAll(".brand-header--site .brand-image--avatar").forEach(avatar => avatar.setAttribute("href", "/about/"));</script>
   head_end: |-
